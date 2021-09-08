@@ -16,7 +16,13 @@ const TodoForm = (props) => {
       return;
     }
 
-    props.addTodoHandler(input);
+    const newTodo = {
+      id: Math.floor(Math.random() * 1000),
+      text: input,
+      isComplete: false,
+    };
+
+    props.setTodos([...props.todos, newTodo]);
     setInput("");
   };
 
