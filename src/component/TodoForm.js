@@ -1,20 +1,28 @@
 import { useState } from "react";
 
-const TodoForm = () => {
-  const [todo, setTodo] = useState();
+const TodoForm = (props) => {
+  const [input, setInput] = useState("");
 
   const ChangeHandler = (e) => {
-    setTodo(e.target.value);
+    setInput(e.target.value);
     console.log(e.target.value);
   };
 
   const submitHandler = (e) => {
-    return e.PrevDefault();
+    e.preventDefault();
+
+    if (!input) {
+      alert("enter input!");
+      return;
+    }
+
+    props.addTodoHandler(input);
+    setInput("");
   };
 
   return (
     <form onSubmit={submitHandler}>
-      <input type="text" value={todo} onChange={ChangeHandler} />
+      <input type="text" value={input} onChange={ChangeHandler} />
       <button type="submit">Add</button>
     </form>
   );
