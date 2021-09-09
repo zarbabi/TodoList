@@ -2,7 +2,7 @@ import Todo from "./Todo";
 
 const TodoList = ({ todos, onComplete }) => {
   const renderTodos = () => {
-    if (todos.length === 0) return <div>add some todos</div>;
+    if (todos.length === 0) return <p>add some todos</p>;
 
     return todos.map((todo) => {
       return (
@@ -14,6 +14,7 @@ const TodoList = ({ todos, onComplete }) => {
       );
     });
   };
+
   return <div>{renderTodos()}</div>;
 };
 
