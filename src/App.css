@@ -27,8 +27,12 @@
   justify-content: space-between;
   align-items: center;
   width: 20rem;
-
   margin: 10px;
+}
+
+.todoText {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .completed {
@@ -78,7 +82,27 @@ input:focus {
   background-color: rgb(31, 187, 4);
 }
 
+.updateTodo {
+  background-color: rgb(33, 218, 0);
+  color: #fff;
+}
 
-updateTodo{
-  background-color:rgb(33, 218, 0);
+header {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+header span {
+  margin-right: 20px;
+  display: inline-block;
+  width: 20px;
+  font-size: 14px;
+  height: 20px;
+  background-color: #d6f5bd;
+  color: rgb(11, 61, 1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
