@@ -1,14 +1,22 @@
-const NavBar = ({ unCompleteTodo }) => {
+import { useState } from "react";
+
+const NavBar = ({ unCompleteTodo, filterTodos }) => {
+  const [status, setStatus] = useState(["ALL"]);
+  const changeHandler = (e) => {
+    setStatus(e.target.value);
+    filterTodos(e.target.value);
+  };
+
+  if (!unCompleteTodo) return <h2> set yours today todos !</h2>;
+
   return (
     <header>
-      {" "}
-      {unCompleteTodo ? (
-        <>
-          <span>{unCompleteTodo}</span> <h2>Are Not Completed</h2>
-        </>
-      ) : (
-        <h2> set yours today todos !</h2>
-      )} 
+      <span>{unCompleteTodo}</span> <h2>Are Not Completed</h2>
+      <select onChange={changeHandler}>
+        <option value="All">All</option>
+        <option value="Completed">Completed</option>
+        <option value="Uncompleted">Uncompleted</option>
+      </select>
     </header>
   );
 };
